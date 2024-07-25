@@ -3,11 +3,10 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableOpacity,
   Pressable,
 } from "react-native";
 import React, { useState } from "react";
-import { Stack, useLocalSearchParams } from "expo-router";
+import { router, Stack, useLocalSearchParams } from "expo-router";
 import products from "@/assets/data/products";
 import { defaultPizzaImage } from "@/src/components/ProductListItem";
 import Button from "@/src/components/ButtonComponent";
@@ -24,7 +23,8 @@ const ProductDetailScreen = () => {
 
   const addToCart = () => {
     if(!product) return;
-    addItem(product, selectedSize)
+    addItem(product, selectedSize);
+    router.push('/cart')
   };
 
   if (!product) {
